@@ -58,3 +58,144 @@ class Solution
 
 }
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.Print reverse of a string using recursion
+public class StringReverse {
+	 void reverse(String str)
+	    {
+	        if ((str==null)||(str.length() <= 1))
+	           System.out.println(str);
+	        else
+	        {
+	            System.out.print(str.charAt(str.length()-1));
+	            reverse(str.substring(0,str.length()-1));
+	        }
+	    }
+public static void main(String[] args) {
+	 String str = "Geeks for Geeks";
+     StringReverse obj = new StringReverse();
+     obj.reverse(str);
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4.Factorial
+class Solution{
+    static long factorial(int N){
+        if(N==0){
+            return 1;
+        }
+        long val = factorial(N-1);
+        long ans = N*val;
+        return ans;
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.Sum of Array
+
+class Solution {
+    int sum(int arr[], int N) {
+        if(N<=0){
+            return 0;
+        }
+        
+       return (sum(arr, N - 1) + arr[N - 1]);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6.https://www.geeksforgeeks.org/find-the-largest-three-elements-in-an-array/
+public class PrintLargest {
+public static void main(String[] args) {
+	 int arr[] = { 12, 13, 1, 10, 34, 1 };
+     int n = arr.length;
+     print3largest(arr, n);
+}
+
+private static void print3largest(int[] arr, int arr_size) {
+	int i, first, second, third;
+	 
+   
+    if (arr_size < 3) {
+        return;
+    }
+
+    third = first = second = Integer.MIN_VALUE;
+    for (i = 0; i < arr_size; i++) {
+        
+        if (arr[i] > first) {
+            third = second;
+            second = first;
+            first = arr[i];
+        }
+
+        
+        else if (arr[i] > second) {
+            third = second;
+            second = arr[i];
+        }
+
+        else if (arr[i] > third)
+            third = arr[i];
+    }
+
+    System.out.println( first + " " + second + " " + third);
+	
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7.https://www.geeksforgeeks.org/find-second-largest-element-array/
+
+import java.util.Scanner;
+
+public class Secondmax {
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+	int length=sc.nextInt();
+	int arr[] = new int[length];
+	for(int i=0;i<length;i++) {
+		arr[i]=sc.nextInt();
+	}
+	
+	int largest=Integer.MIN_VALUE;
+	int secondLargest=Integer.MIN_VALUE;
+	if(length==1){
+        System.out.println(-1);
+        return;
+       }
+	for(int i=0;i<length;i++) {
+		if(arr[i]>largest) {
+			largest=arr[i];
+			secondLargest=largest;
+		}else if(arr[i]>secondLargest && arr[i]!=largest) {
+			secondLargest=arr[i];
+		}
+	}
+	System.out.println(secondLargest);
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8.Move all zeroes to end of array
+
+public class shiftAllZeroToEnd {
+public static void main(String[] args) {
+	int arr[] = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9}; 
+    int n = arr.length; 
+    pushZerosToEnd(arr, n); 
+    
+    for (int i=0; i<n; i++) 
+        System.out.print(arr[i]+" "); 
+}
+
+private static void pushZerosToEnd(int[] arr, int n) {
+	 int count = 0; 
+	 
+	 for (int i = 0; i < n; i++) {
+         if (arr[i] != 0) 
+             arr[count++] = arr[i];
+}
+	 while (count < n) {
+         arr[count++] = 0;
+	 }
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9.https://www.geeksforgeeks.org/print-left-rotation-array/
